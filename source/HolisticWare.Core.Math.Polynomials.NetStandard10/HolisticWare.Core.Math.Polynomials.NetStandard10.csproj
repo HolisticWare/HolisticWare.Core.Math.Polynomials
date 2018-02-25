@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Runtime" Version="4.3.0" />
+  </ItemGroup>
+  <Import Project="..\HolisticWare.Core.Math.Polynomials\HolisticWare.Core.Math.Polynomials.projitems" Label="Shared" Condition="Exists('..\HolisticWare.Core.Math.Polynomials\HolisticWare.Core.Math.Polynomials.projitems')" />
+</Project>

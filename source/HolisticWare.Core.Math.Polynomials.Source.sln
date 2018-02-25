@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "HolisticWare.Core.Math.Polynomials", "HolisticWare.Core.Math.Polynomials\HolisticWare.Core.Math.Polynomials.shproj", "{E33946BB-79B6-4C19-9CB2-62432997536D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolisticWare.Core.Math.Polynomials.NetStandard10", "HolisticWare.Core.Math.Polynomials.NetStandard10\HolisticWare.Core.Math.Polynomials.NetStandard10.csproj", "{3F12E12E-C86E-4E6D-AB44-0CE0D7E278B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolisticWare.Core.Math.Polynomials.NetStandard13", "HolisticWare.Core.Math.Polynomials.NetStandard13\HolisticWare.Core.Math.Polynomials.NetStandard13.csproj", "{972AD53F-6D33-49EB-8700-616F72314B98}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F12E12E-C86E-4E6D-AB44-0CE0D7E278B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F12E12E-C86E-4E6D-AB44-0CE0D7E278B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F12E12E-C86E-4E6D-AB44-0CE0D7E278B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F12E12E-C86E-4E6D-AB44-0CE0D7E278B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{972AD53F-6D33-49EB-8700-616F72314B98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{972AD53F-6D33-49EB-8700-616F72314B98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{972AD53F-6D33-49EB-8700-616F72314B98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{972AD53F-6D33-49EB-8700-616F72314B98}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
