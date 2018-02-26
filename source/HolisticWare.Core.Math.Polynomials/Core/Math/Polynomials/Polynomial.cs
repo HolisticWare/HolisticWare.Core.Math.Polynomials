@@ -23,7 +23,17 @@ namespace Core.Math.Polynomials
         /// Coefficients of the Polynomial
         /// </summary>
         /// <value>The coefficients.</value>
-        public Dictionary<int, T> Coefficients
+        public Dictionary<int, T> CoefficientsCompressed
+        {
+            get
+            {
+                return this.Compress();
+            }
+
+
+        }
+
+        public T[] Coefficients
         {
             get;
             set;
@@ -43,9 +53,10 @@ namespace Core.Math.Polynomials
 
         public Polynomial()
         {
-            this.Coefficients = new Dictionary<int, T>()
+            this.Coefficients = new T[1]
             {
-                {0, default(T)}
+                default(T)              // 0 = Polynomial() { 0 };
+                                        // 0 * x ^ 0;
             };
 
             return;
@@ -54,7 +65,16 @@ namespace Core.Math.Polynomials
         public Polynomial(T n)
             : this()
         {
-            this.Coefficients[0] = n;
+            this.Coefficients[0] = n;   // constant => Polynomial() { n };
+                                        // n * x ^ 0;
+
+            return;
+        }
+
+        public Polynomial(T[] coefficients)
+            : this()
+        {
+            coefficients.CopyTo(this.Coefficients, 0);
 
             return;
         }
@@ -62,7 +82,7 @@ namespace Core.Math.Polynomials
         public Polynomial(Dictionary<int, T> coefficients)
             : this()
         {
-            this.Coefficients = new Dictionary<int, T>(coefficients);
+            this.Coefficients = this.Decompress(coefficients); 
 
             return;
         }
@@ -70,21 +90,56 @@ namespace Core.Math.Polynomials
         public Polynomial(Polynomial<T> polynimial)
             :this()
         {
-            this.Coefficients = new Dictionary<int, T>(polynimial.Coefficients);
+            this.Coefficients = new T[polynimial.Coefficients.Count()];
+            polynimial.Coefficients.CopyTo(this.Coefficients, 0);
 
             return;
         }
 
         public Polynomial(IEnumerable<T> p)
         {
-            this.Coefficients = new Dictionary<int, T>();
+            int n = p.Count();
+            this.Coefficients = new T[n];
 
-            for (int i = 0; i < p.Count(); i++)
+            for (int i = 0; i < n; i++)
             {
-                this.Coefficients.Add(i, p.ElementAt(i));
+                this.Coefficients[i] = p.ElementAt(i);
             }
 
             return;
+        }
+
+        public Dictionary<int, T> Compress()
+        {
+            Dictionary<int, T> coefficients_compressed = new Dictionary<int, T>();
+
+            for (int i = 0; i < this.Coefficients.Count(); i++)
+            {
+                if (this.Coefficients[i].CompareTo(default(T)) == 0) // == 0
+                {
+                    continue;
+                }
+                else
+                {
+                    coefficients_compressed.Add(i, this.Coefficients[i]);
+                }
+            }
+
+            return coefficients_compressed;
+        }
+
+        public T[] Decompress(Dictionary<int, T> coefficeints_compressed)
+        {
+            int n_compressed = coefficeints_compressed.Count();
+            int n = coefficeints_compressed.Last().Key;
+
+            T[] coefficeints_uncompressed = new T[n + 1];
+            foreach(KeyValuePair<int, T> kvp in coefficeints_compressed)
+            {
+                coefficeints_uncompressed[kvp.Key] = kvp.Value;
+            }
+
+            return coefficeints_uncompressed;
         }
     }
 }
