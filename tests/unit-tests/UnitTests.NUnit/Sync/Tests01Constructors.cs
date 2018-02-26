@@ -36,7 +36,7 @@ using Core.Math.Polynomials;
 
 namespace UnitTests.Core.Math.Statistics.Descriptive.Sequential.Sync
 {
-    public partial class Tests01MeanAverage
+    public partial class Tests01Constructors
     {
         Stopwatch sw = null;
         
@@ -52,14 +52,14 @@ namespace UnitTests.Core.Math.Statistics.Descriptive.Sequential.Sync
             // Act
             sw.Stop();
             Console.WriteLine($"Polynomial<int>()");
-            Console.WriteLine($"          size               = {p01.Coefficients.Count}");
+            Console.WriteLine($"          size               = {p01.Coefficients.Count()}");
             Console.WriteLine($"          elapsed[ticks]     = {sw.ElapsedTicks}");
             Console.WriteLine($"          elapsed[ms]        = {sw.Elapsed.TotalMilliseconds}");
             sw.Reset();
 
             //----------------------------------------------------------------------------------------------------
             // Assert
-            Assert.AreEqual(1, p01.Coefficients.Count);
+            Assert.AreEqual(1, p01.Coefficients.Count());
             //====================================================================================================
 
             return;
@@ -77,14 +77,14 @@ namespace UnitTests.Core.Math.Statistics.Descriptive.Sequential.Sync
             // Act
             sw.Stop();
             Console.WriteLine($"Polynomial<int>(T)");
-            Console.WriteLine($"          size               = {p01.Coefficients.Count}");
+            Console.WriteLine($"          size               = {p01.Coefficients.Count()}");
             Console.WriteLine($"          elapsed[ticks]     = {sw.ElapsedTicks}");
             Console.WriteLine($"          elapsed[ms]        = {sw.Elapsed.TotalMilliseconds}");
             sw.Reset();
 
             //----------------------------------------------------------------------------------------------------
             // Assert
-            Assert.AreEqual(1, p01.Coefficients.Count);
+            Assert.AreEqual(1, p01.Coefficients.Count());
             //====================================================================================================
 
             return;
@@ -111,14 +111,14 @@ namespace UnitTests.Core.Math.Statistics.Descriptive.Sequential.Sync
             // Act
             sw.Stop();
             Console.WriteLine($"Polynomial<double>(new Dictionary<int, double>)");
-            Console.WriteLine($"          size               = {p01.Coefficients.Count}");
+            Console.WriteLine($"          size               = {p01.Coefficients.Count()}");
             Console.WriteLine($"          elapsed[ticks]     = {sw.ElapsedTicks}");
             Console.WriteLine($"          elapsed[ms]        = {sw.Elapsed.TotalMilliseconds}");
             sw.Reset();
 
             //----------------------------------------------------------------------------------------------------
             // Assert
-            Assert.AreEqual(3, p01.Coefficients.Count);
+            Assert.AreEqual(4, p01.Coefficients.Count());
             //====================================================================================================
 
             return;
