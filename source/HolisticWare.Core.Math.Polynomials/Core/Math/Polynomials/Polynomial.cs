@@ -134,7 +134,7 @@ namespace Core.Math.Polynomials
             int n = coefficeints_compressed.Last().Key;
 
             T[] coefficeints_uncompressed = new T[n + 1];
-            foreach(KeyValuePair<int, T> kvp in coefficeints_compressed)
+            foreach (KeyValuePair<int, T> kvp in coefficeints_compressed)
             {
                 coefficeints_uncompressed[kvp.Key] = kvp.Value;
             }

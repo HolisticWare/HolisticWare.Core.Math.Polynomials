@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2020
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "library-source", "library-source", "{56123580-99E9-45AC-8300-ABF8EE1D021E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nunit", "nunit", "{1F3FDAF9-6319-4A3A-AF61-56DC82305EDD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xunit", "xunit", "{B1FC9A26-F8DF-49D3-9E01-31CCE984D511}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests.NUnit", "UnitTests.NUnit\UnitTests.NUnit.csproj", "{04F3D823-ABEA-46DD-9EC2-56C08CA074DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AEC90E05-F732-4DBC-8DDB-B427F137C82C}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\README.md = ..\..\README.md
+	EndProjectSection
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "HolisticWare.Core.Math.Polynomials", "..\..\source\HolisticWare.Core.Math.Polynomials\HolisticWare.Core.Math.Polynomials.shproj", "{E33946BB-79B6-4C19-9CB2-62432997536D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolisticWare.Core.Math.Polynomials.NetStandard10", "..\..\source\HolisticWare.Core.Math.Polynomials.NetStandard10\HolisticWare.Core.Math.Polynomials.NetStandard10.csproj", "{3F12E12E-C86E-4E6D-AB44-0CE0D7E278B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolisticWare.Core.Math.Polynomials.NetStandard13", "..\..\source\HolisticWare.Core.Math.Polynomials.NetStandard13\HolisticWare.Core.Math.Polynomials.NetStandard13.csproj", "{972AD53F-6D33-49EB-8700-616F72314B98}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "externals", "externals", "{1A4A9632-5BBE-4679-957E-1FF88BA3CB1C}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\..\source\HolisticWare.Core.Math.Polynomials\HolisticWare.Core.Math.Polynomials.projitems*{e33946bb-79b6-4c19-9cb2-62432997536d}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04F3D823-ABEA-46DD-9EC2-56C08CA074DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04F3D823-ABEA-46DD-9EC2-56C08CA074DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04F3D823-ABEA-46DD-9EC2-56C08CA074DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04F3D823-ABEA-46DD-9EC2-56C08CA074DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F12E12E-C86E-4E6D-AB44-0CE0D7E278B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F12E12E-C86E-4E6D-AB44-0CE0D7E278B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F12E12E-C86E-4E6D-AB44-0CE0D7E278B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F12E12E-C86E-4E6D-AB44-0CE0D7E278B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{972AD53F-6D33-49EB-8700-616F72314B98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{972AD53F-6D33-49EB-8700-616F72314B98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{972AD53F-6D33-49EB-8700-616F72314B98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{972AD53F-6D33-49EB-8700-616F72314B98}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{04F3D823-ABEA-46DD-9EC2-56C08CA074DB} = {1F3FDAF9-6319-4A3A-AF61-56DC82305EDD}
+		{E33946BB-79B6-4C19-9CB2-62432997536D} = {56123580-99E9-45AC-8300-ABF8EE1D021E}
+		{3F12E12E-C86E-4E6D-AB44-0CE0D7E278B6} = {56123580-99E9-45AC-8300-ABF8EE1D021E}
+		{972AD53F-6D33-49EB-8700-616F72314B98} = {56123580-99E9-45AC-8300-ABF8EE1D021E}
+		{1A4A9632-5BBE-4679-957E-1FF88BA3CB1C} = {56123580-99E9-45AC-8300-ABF8EE1D021E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CC1968CA-A163-4F46-9E24-814C893F78B0}
+	EndGlobalSection
+EndGlobal

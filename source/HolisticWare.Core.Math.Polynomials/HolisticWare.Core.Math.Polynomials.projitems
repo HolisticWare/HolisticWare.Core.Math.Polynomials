@@ -18,5 +18,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Core\Math\Polynomials\Polynomial.Operators.Relational.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Core\Math\Polynomials\Polynomial.Operators.Arithmetic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Core\Math\Polynomials\Polynomial.Calculus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Math\Polynomials\Polynomial.ExtensionMethods.Calculus.cs" />
   </ItemGroup>
 </Project>
