@@ -39,7 +39,7 @@ namespace UnitTests.Core.Math.Statistics.Descriptive.Sequential.Sync
     public partial class Tests01Constructors
     {
         Stopwatch sw = null;
-        
+
         [Test()]
         public void ConstructorDefault()
         {
@@ -123,5 +123,68 @@ namespace UnitTests.Core.Math.Statistics.Descriptive.Sequential.Sync
 
             return;
         }
+
+        // p = [-2, -1, 0, 1, 2];
+        // represents the polynomial
+        // -2x^{4}-x^{3}+x+2.}
+        // polyout(p, 'x')
+        // -2*x^4 - 1*x^3 + 0*x^2 + 1*x^1 + 2
+        [Test()]
+        public void Test01ToString()
+        {
+            //====================================================================================================
+            // Arrange
+            Polynomial<double> p00 = new Polynomial<double>
+                                        (
+                                            new Dictionary<int, double>()
+                                            {
+                                                {0, 1.1},
+                                                {1, 2.2},
+                                                {3, 3.3},
+                                            }
+                                        );
+            Polynomial<double> p01 = new Polynomial<double>(p00);
+
+            sw = Stopwatch.StartNew();
+            //----------------------------------------------------------------------------------------------------
+            // Act
+            p00.ToString("x");
+            sw.Stop();
+            Console.WriteLine($"Polynomial<double>(new Dictionary<int, double>)");
+            Console.WriteLine($"          size               = {p01.Coefficients.Count()}");
+            Console.WriteLine($"          elapsed[ticks]     = {sw.ElapsedTicks}");
+            Console.WriteLine($"          elapsed[ms]        = {sw.Elapsed.TotalMilliseconds}");
+            sw.Reset();
+
+            //----------------------------------------------------------------------------------------------------
+            // Assert
+            Assert.AreEqual(4, p01.Coefficients.Count());
+            //====================================================================================================
+
+            return;
+        }
+
+        // y = polyval(p, x)
+        // evaluating
+
+        Multiplication:
+r = conv(p, q)
+Here, p and q are vectors containing the coefficients of two polynomials and the result, r, will contain the coefficients of their product.
+
+(As an aside, the reason this function is called conv is that we use vector convolution to do polynomial multiplication.)
+
+Division:
+[b, r] = deconv(y, a)
+
+            Root finding:
+roots(p)
+This returns a vector containing all the roots of the polynomial with coefficients in p.
+
+Derivative:
+q = polyder(p)
+This returns the coefficients of the derivative of the polynomial whose coefficients are given by vector p.
+
+Integration:
+q = polyint(p)
     }
 }

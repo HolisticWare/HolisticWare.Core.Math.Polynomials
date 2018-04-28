@@ -9,6 +9,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolisticWare.Core.Math.Poly
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolisticWare.Core.Math.Polynomials.NetStandard13", "HolisticWare.Core.Math.Polynomials.NetStandard13\HolisticWare.Core.Math.Polynomials.NetStandard13.csproj", "{972AD53F-6D33-49EB-8700-616F72314B98}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "externals", "externals", "{B4DD83B7-4623-47AA-A31D-9BA5F051D9B9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{F4E8D7F7-7B32-4F1A-A9B1-D3DF9E5214AE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core.Collections.Generic", "Core.Collections.Generic", "{A8492FD5-7C67-4174-B4EF-521FBEDC7FE4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core.Math", "Core.Math", "{FD6546B4-3B34-4E6B-B8F0-89E44766C083}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core.Text", "Core.Text", "{5EC422A8-2C7A-4C47-B115-AB20FDA7A236}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,5 +33,11 @@ Global
 		{972AD53F-6D33-49EB-8700-616F72314B98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{972AD53F-6D33-49EB-8700-616F72314B98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{972AD53F-6D33-49EB-8700-616F72314B98}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F4E8D7F7-7B32-4F1A-A9B1-D3DF9E5214AE} = {B4DD83B7-4623-47AA-A31D-9BA5F051D9B9}
+		{A8492FD5-7C67-4174-B4EF-521FBEDC7FE4} = {B4DD83B7-4623-47AA-A31D-9BA5F051D9B9}
+		{FD6546B4-3B34-4E6B-B8F0-89E44766C083} = {B4DD83B7-4623-47AA-A31D-9BA5F051D9B9}
+		{5EC422A8-2C7A-4C47-B115-AB20FDA7A236} = {B4DD83B7-4623-47AA-A31D-9BA5F051D9B9}
 	EndGlobalSection
 EndGlobal
