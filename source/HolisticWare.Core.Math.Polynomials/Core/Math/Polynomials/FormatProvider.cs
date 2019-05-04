@@ -1,8 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 
 namespace Core.Math.Polynomials
 {
@@ -36,6 +37,9 @@ namespace Core.Math.Polynomials
 
         public string FormatDefault(PolynomialBase p, string format)
         {
+            PolynomialBase o = p;
+            StringBuilder sb = new StringBuilder();
+
             switch (format.ToUpperInvariant())
             {
                 case "CSHARP":
@@ -67,7 +71,9 @@ namespace Core.Math.Polynomials
 
         public string Format(string fmt, object arg, IFormatProvider formatProvider)
         {
-            return this.FormatDefault(arg, fmt);
+            PolynomialBase pb = (PolynomialBase)arg;
+
+            return this.FormatDefault(pb, fmt);
         }
 
         private string HandleOtherFormats(string format, object arg)

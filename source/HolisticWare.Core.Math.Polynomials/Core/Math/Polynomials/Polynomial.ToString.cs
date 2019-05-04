@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,6 +8,8 @@ namespace Core.Math.Polynomials
     {
         public string ToString(string format)
         {
+            Polynomial<T> o = this;
+
             if (string.IsNullOrEmpty(format))
             {
                 return o.ToString();
@@ -23,6 +25,7 @@ namespace Core.Math.Polynomials
 
         public string ToString(string format, FormatProvider provider)
         {
+            Polynomial<T> o = this;
             string formatted = null;
 
             if (String.IsNullOrEmpty(format))
