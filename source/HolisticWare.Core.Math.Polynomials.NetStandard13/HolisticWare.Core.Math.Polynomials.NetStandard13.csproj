@@ -4,5 +4,8 @@
     <TargetFramework>netstandard1.3</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="NETStandard.Library" Version="2.0.3" />
+  </ItemGroup>
   <Import Project="..\HolisticWare.Core.Math.Polynomials\HolisticWare.Core.Math.Polynomials.projitems" Label="Shared" Condition="Exists('..\HolisticWare.Core.Math.Polynomials\HolisticWare.Core.Math.Polynomials.projitems')" />
 </Project>

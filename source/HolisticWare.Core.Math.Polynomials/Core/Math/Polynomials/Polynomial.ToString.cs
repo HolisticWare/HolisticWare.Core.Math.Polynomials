@@ -43,7 +43,7 @@ namespace Core.Math.Polynomials
             }
             else
             {
-                formatted = provider.FormatMethod(o, format);
+                formatted = provider.FormatMethod(o as PolynomialBase, format);
             }
 
             return formatted;
