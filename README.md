@@ -65,7 +65,7 @@
 
 *   http://www.mathcentre.ac.uk/resources/uploaded/mc-ty-polynomial-2009-1.pdf
 
-## Polynomials implementation
+## Implementations
 
 *   https://github.com/search?q=polynomials+language%3AC%23
 
