@@ -68,15 +68,13 @@ using System.Collections.ObjectModel;
 
 using Core.Math.Polynomials;
 
-namespace UnitTests.Core.Math.Polynomials
-{
+namespace UnitTests.Core.Math.Polynomials {
     /// <summary>
     /// Test01
     /// </summary>
     /// <see href="https://en.wikipedia.org/wiki/Polynomial"/>
     [TestClass]
-    public partial class Tests202000712_Basics_Wikipedia
-     {
+    public partial class Tests202000712_Basics_Wikipedia {
         [Test]
         public void Polynomial_of_int_Constructor_01_default()
         {
@@ -88,14 +86,60 @@ namespace UnitTests.Core.Math.Polynomials
             #elif XUNIT
             Assert.AreEqual(polynomial.Coefficients,    2.00);
             #elif MSTEST
-            Assert.AreEqual(polynomial.Coefficients,    2.00);
+            Assert.AreEqual(polynomial.Coefficients, 2.00);
             #endif
 
             return;
         }
 
         [Test]
-        public void Polynomial_of_int_Constructor_01_default()
+        public void Polynomial_of_int_Constructor_02_default()
         {
+            Polynomial<int> polynomial = new Polynomial<int>(5);
+
+            return;
+        }
+
+        [Test]
+        public void Polynomial_of_int_Constructor_02_int_Array_coefficients()
+        {
+            int[] coefficeints = new[] { 1, 3, 4 };
+
+            Polynomial<int> polynomial = new Polynomial<int>(coefficeints);
+
+            return;
+        }
+
+        [Test]
+        public void Polynomial_of_int_Constructor_02_Dictionary_coefficients()
+        {
+            Dictionary<int, int> coefficeints =
+                                                new Dictionary<int, int>
+                                                {
+                                                    { 1, 2 },
+                                                    { 1, 3 },
+                                                    { 2, 4 },
+                                                };
+
+            Polynomial<int> polynomial = new Polynomial<int>(coefficeints);
+
+            return;
+        }
+
+        [Test]
+        public void Polynomial_of_int_Constructor_02_IEnumerable_of_Tuples_coefficients()
+        {
+            IEnumerable<(int exponent, int coefficient)> coefficeints =
+                                    new[]
+                                    {
+                                        ( 1, 2 ),
+                                        ( 1, 3 ),
+                                        ( 2, 4 ),
+                                    };
+
+            Polynomial<int> polynomial = new Polynomial<int>(coefficeints);
+
+            return;
         }
     }
+}
