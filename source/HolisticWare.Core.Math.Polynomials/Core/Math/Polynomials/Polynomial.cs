@@ -23,7 +23,7 @@ namespace Core.Math.Polynomials
         /// Coefficients of the Polynomial
         /// </summary>
         /// <value>The coefficients.</value>
-        public Dictionary<int, T> CoefficientsCompressed
+        public Dictionary<uint, T> CoefficientsCompressed
         {
             get
             {
@@ -71,7 +71,10 @@ namespace Core.Math.Polynomials
             return;
         }
 
-        public Polynomial(T[] coefficients)
+        public Polynomial
+                        (
+                            T[] coefficients
+                        )
             : this()
         {
             coefficients.CopyTo(this.Coefficients, 0);
@@ -79,7 +82,10 @@ namespace Core.Math.Polynomials
             return;
         }
 
-        public Polynomial(Dictionary<int, T> coefficients)
+        public Polynomial
+                        (
+                            Dictionary<uint, T> coefficients
+                        )
             : this()
         {
             this.Coefficients = this.Decompress(coefficients); 
@@ -87,16 +93,34 @@ namespace Core.Math.Polynomials
             return;
         }
 
-        public Polynomial(Polynomial<T> polynimial)
-            :this()
+        public Polynomial
+                        (
+                            IEnumerable<(uint exponent, T coefficient)> coefficients
+                        )
+            : this()
         {
-            this.Coefficients = new T[polynimial.Coefficients.Count()];
-            polynimial.Coefficients.CopyTo(this.Coefficients, 0);
+            this.Coefficients = this.Decompress(coefficients);
+
+            return;
+        }
+        
+
+        public Polynomial
+                        (
+                            Polynomial<T> polynomial
+                        )
+            : this()
+        {
+            this.Coefficients = new T[polynomial.Coefficients.Count()];
+            polynomial.Coefficients.CopyTo(this.Coefficients, 0);
 
             return;
         }
 
-        public Polynomial(IEnumerable<T> p)
+        public Polynomial
+                        (
+                            IEnumerable<T> p
+                        )
         {
             int n = p.Count();
             this.Coefficients = new T[n];
@@ -109,11 +133,11 @@ namespace Core.Math.Polynomials
             return;
         }
 
-        public Dictionary<int, T> Compress()
+        public Dictionary<uint, T> Compress()
         {
-            Dictionary<int, T> coefficients_compressed = new Dictionary<int, T>();
+            Dictionary<uint, T> coefficients_compressed = new Dictionary<uint, T>();
 
-            for (int i = 0; i < this.Coefficients.Count(); i++)
+            for (uint i = 0; i < this.Coefficients.Count(); i++)
             {
                 if (this.Coefficients[i].CompareTo(default(T)) == 0) // == 0
                 {
@@ -128,13 +152,13 @@ namespace Core.Math.Polynomials
             return coefficients_compressed;
         }
 
-        public T[] Decompress(Dictionary<int, T> coefficeints_compressed)
+        public T[] Decompress(Dictionary<uint, T> coefficeints_compressed)
         {
             int n_compressed = coefficeints_compressed.Count();
-            int n = coefficeints_compressed.Last().Key;
+            uint n = coefficeints_compressed.Last().Key;
 
             T[] coefficeints_uncompressed = new T[n + 1];
-            foreach (KeyValuePair<int, T> kvp in coefficeints_compressed)
+            foreach (KeyValuePair<uint, T> kvp in coefficeints_compressed)
             {
                 coefficeints_uncompressed[kvp.Key] = kvp.Value;
             }
