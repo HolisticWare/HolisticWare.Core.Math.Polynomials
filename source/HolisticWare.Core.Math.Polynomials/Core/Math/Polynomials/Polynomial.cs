@@ -9,7 +9,8 @@ namespace Core.Math.Polynomials
     /// </summary>
     /// <see cref="https://en.wikipedia.org/wiki/Polynomial"/>
     public partial class Polynomial<T>
-        where T :
+        : IPolynomial
+        where T :                
                 struct,
                 IComparable,
                 IComparable<T>,
@@ -88,6 +89,7 @@ namespace Core.Math.Polynomials
                         )
             : this()
         {
+
             this.Coefficients = this.Decompress(coefficients); 
 
             return;
@@ -152,7 +154,10 @@ namespace Core.Math.Polynomials
             return coefficients_compressed;
         }
 
-        public T[] Decompress(Dictionary<uint, T> coefficeints_compressed)
+        public T[] Decompress
+                            (
+                                Dictionary<uint, T> coefficeints_compressed
+                            )
         {
             int n_compressed = coefficeints_compressed.Count();
             uint n = coefficeints_compressed.Last().Key;
@@ -165,5 +170,23 @@ namespace Core.Math.Polynomials
 
             return coefficeints_uncompressed;
         }
+
+        public T[] Decompress
+                            (
+                                IEnumerable<(uint exponent, T coefficient)> coefficeints_compressed
+                            )
+        {
+            int n_compressed = coefficeints_compressed.Count();
+            uint n = coefficeints_compressed.Last().exponent;
+
+            T[] coefficeints_uncompressed = new T[n + 1];
+            foreach ((uint exponent, T coefficient) kvp in coefficeints_compressed)
+            {
+                coefficeints_uncompressed[kvp.exponent] = kvp.coefficient;
+            }
+
+            return coefficeints_uncompressed;
+        }
+
     }
 }

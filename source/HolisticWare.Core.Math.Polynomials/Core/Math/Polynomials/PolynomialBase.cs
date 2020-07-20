@@ -8,7 +8,7 @@ namespace Core.Math.Polynomials
     /// Polynomial implementation
     /// </summary>
     /// <see cref="https://en.wikipedia.org/wiki/Polynomial"/>
-    public partial class PolynomialBase
+    public partial class IPolynomial
     {
         public string IndeterminateVariable
         {
@@ -16,9 +16,22 @@ namespace Core.Math.Polynomials
             set;
         } = "x";
 
-        public PolynomialBase()
+        public long CalculateValue
+                                    (
+                                        int x,
+                                        int[] exponent_coefficients
+                                    )
         {
-            return;
+            long result = 0;
+
+            for (uint exponent = 0; exponent < exponent_coefficients.Length; exponent++)
+            {
+                long power = x ^ exponent;
+                result = exponent_coefficients[exponent] * power;
+            }
+
+            return result;
         }
+
     }
 }

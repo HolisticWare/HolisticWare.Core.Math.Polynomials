@@ -19,8 +19,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Core\Math\Polynomials\Polynomial.Operators.Arithmetic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Core\Math\Polynomials\Polynomial.Calculus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Core\Math\Polynomials\Polynomial.ExtensionMethods.Calculus.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Core\Math\Polynomials\Polynomial.ToString.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Core\Math\Polynomials\FormatProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Math\Polynomials\Polynomial.Formatting.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Math\Polynomials\PolynomFormatProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Core\Math\Polynomials\PolynomialBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Math\Polynomials\Polynomial.CalculateValue.cs" />
   </ItemGroup>
 </Project>

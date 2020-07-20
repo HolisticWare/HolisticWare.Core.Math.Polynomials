@@ -7,7 +7,16 @@ using System.Text;
 
 namespace Core.Math.Polynomials
 {
-    public partial class FormatProvider
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <see cref="https://docs.microsoft.com/en-us/dotnet/standard/base-types/formatting-types"/>
+    /// <see cref="https://docs.microsoft.com/en-us/dotnet/api/system.iformatprovider"/>
+    /// <see cref=""/>
+    /// <see cref=""/>
+    /// <see cref=""/>
+    /// <see cref=""/>
+    public partial class PolynomFormatProvider
                 :
                 System.IFormatProvider, //System.Globalization.CultureInfo
                 System.ICustomFormatter
@@ -26,18 +35,22 @@ namespace Core.Math.Polynomials
             }
         }
 
-        public FormatProvider()
+        public PolynomFormatProvider()
         {
             FormatMethod = FormatDefault;
 
             return;
         }
 
-        public Func<PolynomialBase, string, string> FormatMethod;
+        public Func<string, object, string> FormatMethod;
 
-        public string FormatDefault(PolynomialBase p, string format)
+        public string FormatDefault(string format, object o)
         {
-            PolynomialBase o = p;
+            if (string.IsNullOrEmpty(format))
+            {
+                return FormatMethod(format, o);
+            }
+
             StringBuilder sb = new StringBuilder();
 
             switch (format.ToUpperInvariant())
@@ -69,11 +82,10 @@ namespace Core.Math.Polynomials
             return sb.ToString();
         }
 
-        public string Format(string fmt, object arg, IFormatProvider formatProvider)
+        public string Format(string fmt, object polynom, IFormatProvider formatProvider)
         {
-            PolynomialBase pb = (PolynomialBase)arg;
 
-            return this.FormatDefault(pb, fmt);
+            return this.FormatDefault(fmt, polynom);
         }
 
         private string HandleOtherFormats(string format, object arg)
