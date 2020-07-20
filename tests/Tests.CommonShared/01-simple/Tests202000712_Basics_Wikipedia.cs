@@ -74,7 +74,8 @@ namespace UnitTests.Core.Math.Polynomials {
     /// </summary>
     /// <see href="https://en.wikipedia.org/wiki/Polynomial"/>
     [TestClass]
-    public partial class Tests202000712_Basics_Wikipedia {
+    public partial class Tests202000712_Basics_Wikipedia
+    {
         [Test]
         public void Polynomial_of_int_Constructor_01_default()
         {
@@ -82,9 +83,9 @@ namespace UnitTests.Core.Math.Polynomials {
 
 
             #if NUNIT
-            Assert.AreEqual(polynomial.Coefficients,    2.00);
+            Assert.AreEqual(polynomial.Coefficients, 2.00);
             #elif XUNIT
-            Assert.AreEqual(polynomial.Coefficients,    2.00);
+            //Assert.Equals(polynomial.Coefficients, );
             #elif MSTEST
             Assert.AreEqual(polynomial.Coefficients, 2.00);
             #endif
@@ -113,12 +114,12 @@ namespace UnitTests.Core.Math.Polynomials {
         [Test]
         public void Polynomial_of_int_Constructor_02_Dictionary_coefficients()
         {
-            Dictionary<int, int> coefficeints =
-                                                new Dictionary<int, int>
+            Dictionary<uint, int> coefficeints =
+                                                new Dictionary<uint, int>
                                                 {
                                                     { 1, 2 },
-                                                    { 1, 3 },
-                                                    { 2, 4 },
+                                                    { 3, 3 },
+                                                    { 6, 4 },
                                                 };
 
             Polynomial<int> polynomial = new Polynomial<int>(coefficeints);
@@ -129,13 +130,42 @@ namespace UnitTests.Core.Math.Polynomials {
         [Test]
         public void Polynomial_of_int_Constructor_02_IEnumerable_of_Tuples_coefficients()
         {
-            IEnumerable<(int exponent, int coefficient)> coefficeints =
-                                    new[]
-                                    {
-                                        ( 1, 2 ),
-                                        ( 1, 3 ),
-                                        ( 2, 4 ),
-                                    };
+            int x = 0;
+            int y = 4 * x ^ 2 + (-3) * x ^ 1 + 2 * x ^ 0;
+
+            IEnumerable<(uint exponent, int coefficient)> coefficeints =
+                                                                    new (uint, int)[]
+                                                                    {
+                                                                        ( 0,  2 ),
+                                                                        ( 1, -3 ),
+                                                                        ( 2,  4 ),
+                                                                    };
+
+            Polynomial<int> polynomial = new Polynomial<int>(coefficeints);
+
+            x = 0;
+
+            #if NUNIT
+            Assert.AreEqual(y, polynomial.CalculateValue(x, polynomial.Coefficients));
+            #elif MSTEST
+            #elif XUNIT
+            #endif
+
+            return;
+        }
+
+
+        [Test]
+        public void Polynomial_of_int_CalculateValue()
+        {
+
+            IEnumerable<(uint exponent, int coefficient)> coefficeints =
+                                                                    new (uint, int)[]
+                                                                    {
+                                                                        ( 1, 2 ),
+                                                                        ( 1, 3 ),
+                                                                        ( 2, 4 ),
+                                                                    };
 
             Polynomial<int> polynomial = new Polynomial<int>(coefficeints);
 
