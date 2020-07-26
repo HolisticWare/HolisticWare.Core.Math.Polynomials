@@ -81,13 +81,12 @@ namespace UnitTests.Core.Math.Polynomials {
         {
             Polynomial<int> polynomial = new Polynomial<int>();
 
-
             #if NUNIT
-            Assert.AreEqual(polynomial.Coefficients, 2.00);
+            Assert.AreEqual(polynomial.Coefficients.Length, 0);
             #elif XUNIT
-            //Assert.Equals(polynomial.Coefficients, );
+            Assert.Equals(polynomial.Coefficients.Lenght,   0);
             #elif MSTEST
-            Assert.AreEqual(polynomial.Coefficients, 2.00);
+            Assert.AreEqual(polynomial.Coefficients.Length, 0);
             #endif
 
             return;
